@@ -10,7 +10,7 @@
        *to retrieve the currently authenticated principal(username) is via a static call to the SecurityContextHolder (Security ContextHolder.getContext().getAuthentication()) and if not currently                     authenticated principal , and if username is not null then proceed .
        *to retrieve user details we should use loadUserByUsername(username) from userDetailsService class 
        *to validate token and uerDetails we should call validateToken() from jwtHelper class
-       *if it is valid validate username and password using Creating an innstance(UPA) of 2.UsernamePaswwordAuthenticationToken and passing (Object principal, Object credentials, Collection<? 	            extends GrantedAuthority> authorities)/(userdetils,null,userDetails.getAuthorities())
+       *if it is valid validate username and password using Creating an innstance(UPA) of 2.UsernamePaswwordAuthenticationToken and passing (Object principal, Object credentials, Collection<? 	           extends GrantedAuthority> authorities)/(userdetils,null,userDetails.getAuthorities())
        *to convert request from HttpServletRequest(OLD way of storing and passing a request from java6) to WebAuthenticationDetailsSource(New way of storing and passing a request from spring)  we 
        should use buildDetails(request) from  WebAuthenticationDetailsSource [OPTIONAL STEP]
        *to set new AUthentication details in SecurityContext we should call SecurityContextHolder.getContext().setAuthentication(authentication{2})

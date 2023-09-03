@@ -6,7 +6,9 @@
 
 #[JwtAuthenticationfilter] class implements (OncePerrequestFilter) and provides implementatoion for doFilterInternal() , recieves the JWT token from clients and will process the token 
        *request.getHeader("Authorization") //gets the Header from taken
+       
        *to get User name from token we should extract it by using 1.startsWith("Bearer") and should use getUsername(token) from jwt class passing token from {1}.
+       
        *to retrieve the currently authenticated principal(username) is via a static call to the SecurityContextHolder (Security ContextHolder.getContext().getAuthentication()) and if not currently                     authenticated principal , and if username is not null then proceed .
        *to retrieve user details we should use loadUserByUsername(username) from userDetailsService class 
        *to validate token and uerDetails we should call validateToken() from jwtHelper class

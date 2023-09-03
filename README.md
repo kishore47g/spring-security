@@ -23,7 +23,9 @@
  	iii.getClaimFromToken(token) from Function<CLaims , T> claimsResolver passed as argument returns Claims instance and we should return claimsResolver.apply(Claims)/applies the method that is 	sent along with parameters to the claims
   	iv.getAllClaimsFromToken(token) returns Jwts.parserBuilder().setSigningKey(Secret).build().parseClaimsJws(token).getBody() //gets all the claims from token and returns as Claims type.
    	v.generateToken(userDetails) creates a instance of Map<String , Object >/HashMap and returns goGenerateToken(mapinstance,userdetails.getUsername())
-    	vi.doGenerateToken(Map<String,Object> claims ,String subject) returns Jwts.builder().setClaims(Claims).setSubjects(subject).setIssuedAt(new 		      Date(System.currentTimeMillis()).setExpiration(new Date(System.currentTimeMillis()+JWT_Token_VALIDITY * 1000).signWith(SignatureAlgorithm.HS512 , secret).compact()
+    	vi.doGenerateToken(Map<String,Object> claims ,String subject) returns Jwts.builder().setClaims(Claims).setSubjects(subject).setIssuedAt(new  	   		          		  a t         Date(System.currentTimeMillis()).setExpiration(new Date(System.currentTimeMillis()+JWT_Token_VALIDITY * 1000).signWith(SignatureAlgorithm.HS512 , secret).compact()
+     	//builds an object/stream sets the claims,subject,issuedAt,setExpiration and signs with algo and key
+       vii.validateToken(token,userdetails) extract username  from token and checks with userdetails.getUsername() and returns true if token not expired.
 
 
 

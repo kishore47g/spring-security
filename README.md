@@ -1,7 +1,15 @@
 #[AuthConfig] class is reposible for recieving login requests and validate/Authenticate user details and generate JWT tokens using [JwtHelper] class methods.
+	i.get JwtRequest from RequestBody from parameter and call DoAuthenticate(name,pass)
+ 	ii.create a UsernamePasswordAuthenticationToken instance by passing name and pass
+  	iii.use authenticate(upa) token from AuthenticationManager and if valid proceed
+   	iv.load userDetails from UserDetailsService.loadByUsername(name)
+    	v.generate a jwt token using generateToken(userDetails) from JwtHelper
+     	vi.create a reponse JwtResponse.builder().jwtToken(token).username(userDetails.getUsername()).build();
+        vii.return a responseEntity<response,HttpStatus.ok);
 
 
 #[JwtAuthenticationEntryPoint] is responsible for handling exception when user gives wrong credentials.
+	i.It implements AuthenticationEntryPoint and sets response.setStatus(HttpServletresponse.SC_UNAUTHORISED) if user is unauthorised
 
 
 #[JwtAuthenticationfilter] class implements (OncePerrequestFilter) and provides implementatoion for doFilterInternal() , recieves the JWT token from clients and will process the token 
